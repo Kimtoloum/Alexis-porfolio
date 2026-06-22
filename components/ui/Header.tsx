@@ -1,4 +1,5 @@
 import Link from "next/link"
+import ThemeToggle from "@/components/ui/ThemeToggle"
 
 const navItems = [
   { href: "/", label: "Accueil" },
@@ -26,6 +27,7 @@ export default function Header() {
             </li>
           ))}
         </ul>
+        <ThemeToggle />
       </nav>
     </header>
   )
