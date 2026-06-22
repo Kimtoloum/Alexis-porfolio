@@ -54,3 +54,51 @@ export async function getGitHubStats(): Promise<GitHubStats> {
     topRepos,
   }
 }
+
+export async function getCommitActivity() {
+  const username = process.env.GITHUB_USERNAME
+  const token = process.env.GITHUB_TOKEN
+
+  const headers = {
+    Authorization: `Bearer ${token}`,
+    Accept: "application/vnd.github+json",
+  }
+
+  const reposRes = await fetch(
+    `${BASE_URL}/users/${username}/repos?per_page=100`,
+    { headers }
+  )
+  const repos = await reposRes.json()
+
+  const monthCounts: Record<string, number> = {}
+  const now = new Date()
+
+  for (let i = 11; i >= 0; i--) {
+    const d = new Date(now.getFullYear(), now.getMonth() - i, 1)
+    const label = d.toLocaleDateString("fr-FR", { month: "short" })
+    monthCounts[label] = 0
+  }
+
+  for (const repo of repos.slice(0, 10)) {
+    const commitsRes = await fetch(
+      `${BASE_URL}/repos/${username}/${repo.name}/commits?per_page=100`,
+      { headers }
+    )
+    if (!commitsRes.ok) continue
+    const commits = await commitsRes.json()
+    if (!Array.isArray(commits)) continue
+
+    for (const commit of commits) {
+      const date = new Date(commit.commit.author.date)
+      const label = date.toLocaleDateString("fr-FR", { month: "short" })
+      if (label in monthCounts) {
+        monthCounts[label]++
+      }
+    }
+  }
+
+  return Object.entries(monthCounts).map(([month, commits]) => ({
+    month,
+    commits,
+  }))
+}

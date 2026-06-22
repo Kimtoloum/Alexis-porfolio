@@ -1,9 +1,11 @@
-import { getGitHubStats } from "@/lib/github"
+import { getGitHubStats, getCommitActivity } from "@/lib/github"
+import CommitChart from "@/components/stats/CommitChart"
 
 export const revalidate = 3600
 
 export default async function Dashboard() {
   const stats = await getGitHubStats()
+  const commitData = await getCommitActivity()
 
   return (
     <main className="flex-1 max-w-4xl mx-auto w-full px-6 py-12">
@@ -29,10 +31,14 @@ export default async function Dashboard() {
         </div>
       </div>
 
+      <div className="mt-8">
+        <CommitChart data={commitData} />
+      </div>
+
       <h2 className="text-lg font-semibold mt-10 mb-4">Top repos</h2>
       <div className="space-y-3">
         {stats.topRepos.map((repo) => (
-          <a                                      // ✅ balise <a> ajoutée
+          <a
             key={repo.name}
             href={repo.url}
             target="_blank"
