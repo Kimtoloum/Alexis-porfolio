@@ -1,3 +1,4 @@
+import FadeIn from "@/components/ui/FadeIn"
 import { getGitHubStats, getCommitActivity } from "@/lib/github"
 import CommitChart from "@/components/stats/CommitChart"
 
@@ -9,14 +10,18 @@ export default async function Dashboard() {
 
   return (
     <main className="flex-1 max-w-4xl mx-auto w-full px-6 py-12">
-      <h1 className="text-2xl font-semibold tracking-tight">
-        Dashboard GitHub
-      </h1>
-      <p className="mt-2 text-neutral-400">
-        Mes statistiques GitHub en temps réel.
-      </p>
+      <FadeIn>
+        <h1 className="text-2xl font-semibold tracking-tight">
+          Dashboard GitHub
+        </h1>
+      </FadeIn>
+      <FadeIn delay={0.15}>
+        <p className="mt-2 text-neutral-400">
+          Mes statistiques GitHub en temps réel.
+        </p>
+      </FadeIn>
 
-      <div className="grid grid-cols-3 gap-4 mt-8">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
         <div className="border border-neutral-800 rounded-lg p-4">
           <p className="text-sm text-neutral-400">Repositories</p>
           <p className="text-2xl font-semibold mt-1">{stats.publicRepos}</p>

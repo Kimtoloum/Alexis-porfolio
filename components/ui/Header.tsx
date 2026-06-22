@@ -14,12 +14,12 @@ export default function Header() {
         <Link href="/" className="font-semibold tracking-tight">
           AK
         </Link>
-        <ul className="flex gap-6">
+        <ul className="flex gap-3 sm:gap-6 text-xs sm:text-sm">
           {navItems.map((item) => (
             <li key={item.href}>
               <Link
                 href={item.href}
-                className="text-sm text-neutral-400 hover:text-white transition-colors"
+                className="text-neutral-400 hover:text-white transition-colors"
               >
                 {item.label}
               </Link>

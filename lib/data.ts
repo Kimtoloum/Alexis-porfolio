@@ -32,3 +32,44 @@ export const projects: Project[] = [
     status: "planned",
   },
 ]
+
+export type Skill = {
+  name: string
+  level: number
+}
+
+export const skills: Skill[] = [
+  { name: "JavaScript / TypeScript", level: 80 },
+  { name: "PHP / Laravel", level: 85 },
+  { name: "Python", level: 70 },
+  { name: "React / Next.js", level: 75 },
+  { name: "WordPress", level: 90 },
+  { name: "Java", level: 60 },
+]
+
+export type TimelineItem = {
+  year: string
+  title: string
+  description: string
+}
+
+export const timeline: TimelineItem[] = [
+  {
+    year: "2026",
+    title: "Developpeur web/mobile & IA",
+    description:
+      "Developpeur web/mobile, Big Data, UX/UI, IA générative.",
+  },
+  {
+    year: "2025",
+    title: "Audit digital pour un cabinet d'architecture",
+    description:
+      "Stratégie SEO, UX/UI et structuration de données pour bleazarchitecture.com sur 4 marchés africains.",
+  },
+  {
+    year: "Avant",
+    title: "Développeur web freelance",
+    description:
+      "Développement sur mesure pour PME, startups et entrepreneurs en Afrique de l'Ouest.",
+  },
+]
