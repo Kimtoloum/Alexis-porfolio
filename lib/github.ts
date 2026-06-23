@@ -25,18 +25,22 @@ export async function getGitHubStats(): Promise<GitHubStats> {
   const userRes = await fetch(`${BASE_URL}/users/${username}`, { headers })
   const user = await userRes.json()
 
-  const reposRes = await fetch(
-    `${BASE_URL}/users/${username}/repos?per_page=100&sort=pushed`,
+  // Récupère TOUS les repos (publics + privés) pour le comptage global
+  const allReposRes = await fetch(
+    `${BASE_URL}/user/repos?per_page=100&sort=pushed&affiliation=owner`,
     { headers }
   )
-  const repos = await reposRes.json()
+  const allRepos = await allReposRes.json()
 
-  const totalStars = repos.reduce(
+  // Filtre les repos publics uniquement pour l'affichage (top repos)
+  const publicRepos = allRepos.filter((repo: any) => !repo.private)
+
+  const totalStars = publicRepos.reduce(
     (sum: number, repo: any) => sum + repo.stargazers_count,
     0
   )
 
-  const topRepos = repos
+  const topRepos = publicRepos
     .sort((a: any, b: any) => b.stargazers_count - a.stargazers_count)
     .slice(0, 6)
     .map((repo: any) => ({
@@ -48,13 +52,12 @@ export async function getGitHubStats(): Promise<GitHubStats> {
     }))
 
   return {
-    publicRepos: user.public_repos,
+    publicRepos: allRepos.length, // compte TOUS les repos, privés inclus
     followers: user.followers,
     totalStars,
-    topRepos,
+    topRepos, // mais affiche SEULEMENT les publics
   }
 }
-
 export async function getCommitActivity() {
   const username = process.env.GITHUB_USERNAME
   const token = process.env.GITHUB_TOKEN

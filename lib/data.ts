@@ -1,10 +1,107 @@
- export type Project = {
+export type SkillCategory = {
+  category: string
+  skills: { name: string; level: number }[]
+}
+
+export const skillCategories: SkillCategory[] = [
+  {
+    category: "Développement",
+    skills: [
+      { name: "PHP / Laravel", level: 85 },
+      { name: "JavaScript / TypeScript", level: 80 },
+      { name: "React / Next.js", level: 75 },
+      { name: "WordPress", level: 90 },
+      { name: "Java", level: 60 },
+    ],
+  },
+  {
+    category: "Data & Intelligence Artificielle",
+    skills: [
+      { name: "Python (Data Science)", level: 70 },
+      { name: "Analyse de données / EDA", level: 75 },
+      { name: "Machine Learning", level: 60 },
+      { name: "Business Intelligence", level: 65 },
+    ],
+  },
+  {
+    category: "Marketing & Design",
+    skills: [
+      { name: "SEO", level: 80 },
+      { name: "Marketing digital", level: 75 },
+      { name: "Design UX/UI", level: 75 },
+      { name: "Identité visuelle (Canva)", level: 85 },
+    ],
+  },
+  {
+    category: "Gestion de projet",
+    skills: [
+      { name: "Planification & suivi", level: 80 },
+      { name: "Gestion d'équipe", level: 75 },
+      { name: "Méthodes Agile / Scrum", level: 70 },
+      { name: "Reporting & livrables", level: 80 },
+    ],
+  },
+  {
+    category: "Autres expertises",
+    skills: [
+      { name: "Cryptomonnaie & blockchain", level: 65 },
+      { name: "Formation & accompagnement", level: 80 },
+    ],
+  },
+]
+
+export type Certification = {
+  title: string
+  organization: string
+  year: string
+}
+
+export const certifications: Certification[] = [
+  {
+    title: "Certification en gestion de projets ONG",
+    organization: "À préciser",
+    year: "2025",
+  },
+]
+
+export type TimelineItem = {
+  year: string
+  title: string
+  organization: string
+  description: string
+}
+
+export const timeline: TimelineItem[] = [
+  {
+    year: "2022 - Présent",
+    title: "Développeur web & Consultant digital",
+    organization: "Indépendant · Lomé, Togo",
+    description:
+      "Création de sites web modernes, responsives et optimisés SEO. Développement de plateformes e-commerce avec catalogue et panier dynamique. Intégration JS, PHP, Firebase et MySQL. Accompagnement digital de PME et auto-entrepreneurs locaux.",
+  },
+  {
+    year: "Juin 2025 - Avril 2026",
+    title: "Chargé de communication & développement digital",
+    organization: "Eliasse · Lomé, Togo",
+    description:
+      "Participation au développement et à la gestion de solutions digitales. Création, optimisation et publication de contenus numériques multi-plateformes. Appui à la communication digitale et amélioration de la visibilité en ligne.",
+  },
+  {
+    year: "Septembre 2024 - Decembre 2024",
+    title: "Conseiller client & solutions digitales",
+    organization: "WIICOM · Lomé, Togo",
+    description:
+      "Assistance, conseil et fidélisation client dans un contexte de solutions numériques. Présentation et démonstration de solutions digitales auprès de prospects. Gestion des besoins clients sur des projets transversaux.",
+  },
+]
+
+export type Project = {
   title: string
   description: string
   tags: string[]
+  status: "done" | "in-progress" | "planned"
   githubUrl?: string
   demoUrl?: string
-  status: "done" | "in-progress" | "planned"
 }
 
 export const projects: Project[] = [
@@ -18,58 +115,40 @@ export const projects: Project[] = [
     status: "in-progress",
   },
   {
-    title: "Analyse exploratoire de données (EDA)",
+    title: "EDA : Espérance de vie en Afrique de l'Ouest",
     description:
-      "Notebook d'analyse de données publiques avec visualisations et insights commentés.",
-    tags: ["Python", "Pandas", "Seaborn", "Jupyter"],
-    status: "planned",
+      "Analyse exploratoire de l'évolution de l'espérance de vie au Togo et ses voisins (1952–2007), croisée avec le PIB par habitant.",
+    tags: ["Python", "Pandas", "Plotly"],
+    githubUrl: "https://github.com/Kimtoloum/eda-sante-afrique",
+    status: "done",
   },
   {
-    title: "Chatbot RAG sur documents PDF",
+    title: "Système de gestion des stocks pour PME africaines",
     description:
-      "Assistant IA capable de répondre à des questions à partir de documents PDF, avec recherche vectorielle.",
-    tags: ["LangChain", "ChromaDB", "FastAPI", "React"],
-    status: "planned",
-  },
-]
-
-export type Skill = {
-  name: string
-  level: number
-}
-
-export const skills: Skill[] = [
-  { name: "JavaScript / TypeScript", level: 80 },
-  { name: "PHP / Laravel", level: 85 },
-  { name: "Python", level: 70 },
-  { name: "React / Next.js", level: 75 },
-  { name: "WordPress", level: 90 },
-  { name: "Java", level: 60 },
-]
-
-export type TimelineItem = {
-  year: string
-  title: string
-  description: string
-}
-
-export const timeline: TimelineItem[] = [
-  {
-    year: "2026",
-    title: "Developpeur web/mobile & IA",
-    description:
-      "Developpeur web/mobile, Big Data, UX/UI, IA générative.",
+      "Application web de gestion de stocks, ventes, approvisionnements et rapports. Alertes de rupture, tableau de bord analytique, génération de rapports PDF, gestion des rôles utilisateurs.",
+    tags: ["PHP", "Laravel", "MySQL", "Tableau de bord"],
+    status: "in-progress",
   },
   {
-    year: "2025",
-    title: "Audit digital pour un cabinet d'architecture",
+    title: "Système de gestion de commandes — maison de mode",
     description:
-      "Stratégie SEO, UX/UI et structuration de données pour bleazarchitecture.com sur 4 marchés africains.",
+      "Application pour ateliers de couture et créateurs : suivi des commandes en temps réel, gestion des paiements, impression de reçus et étiquettes, tableau de bord avec statistiques.",
+    tags: ["PHP", "MySQL", "Tailwind CSS", "JavaScript"],
+    status: "done",
   },
   {
-    year: "Avant",
-    title: "Développeur web freelance",
+    title: "Site web professionnel — Bleaz Architecture",
     description:
-      "Développement sur mesure pour PME, startups et entrepreneurs en Afrique de l'Ouest.",
+      "Développement complet du site vitrine d'un cabinet d'architecture : conception UI, responsive design, optimisation SEO et performance, déploiement en production.",
+    tags: ["Développement web", "SEO", "UX/UI", "Déploiement"],
+    demoUrl: "https://bleazarchitecture.com",
+    status: "done",
+  },
+  {
+    title: "Identité visuelle & UX/UI — Bleaz Architecture",
+    description:
+      "Conception de l'identité visuelle et du système UX/UI d'un cabinet d'architecture : univers graphique, charte de couleurs, composants d'interface cohérents.",
+    tags: ["Design UX/UI", "Identité visuelle", "Canva"],
+    status: "done",
   },
 ]
