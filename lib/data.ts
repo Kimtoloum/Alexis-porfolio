@@ -1,6 +1,7 @@
+export type Skill = { name: string; level: number }
 export type SkillCategory = {
   category: string
-  skills: { name: string; level: number }[]
+  skills: Skill[]
 }
 
 export const skillCategories: SkillCategory[] = [
