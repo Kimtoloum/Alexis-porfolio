@@ -12,7 +12,6 @@ const stats = [
 
 const badges = [
   { icon: MapPin,    label: "Lomé, Togo" },
-  { icon: Globe,     label: "Disponible pour tout projet" },
   { icon: Briefcase, label: "Ouvert à tous projets" },
 ]
 
@@ -52,7 +51,7 @@ export default function Home() {
 
       <FadeIn delay={0.15}>
         <p className="mt-3 text-[15px] text-neutral-400 max-w-lg leading-relaxed">
-          Je transforme des idées en produits digitaux qui fonctionnent — sites
+          Je transforme des idées en produits digitaux qui fonctionnent - sites
           web, applications, analyses de données et stratégies de croissance
           pour les entreprises et organisations d'Afrique et d'ailleurs.
         </p>

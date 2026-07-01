@@ -28,7 +28,7 @@ const contacts = [
   {
     label: "Site web",
     value: "alexis-kimtoloum.com",
-    href: "https://alexis-kimtoloum.com",
+    href: "https://alexis-porfolio-nine.vercel.app",
     icon: Link2,
   },
 ]

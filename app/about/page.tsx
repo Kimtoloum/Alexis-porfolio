@@ -18,7 +18,7 @@ export default function About() {
         </h1>
         <p className="text-sm text-neutral-400 leading-relaxed max-w-xl">
           Basé à Lomé, Togo. J'accompagne PME, startups, ONG et entrepreneurs
-          d'Afrique de l'Ouest dans leur transformation digitale — du
+          d'Afrique de l'Ouest dans leur transformation digitale - du
           développement sur mesure à l'analyse de données, en passant par le
           SEO, le marketing digital et la formation.
         </p>

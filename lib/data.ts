@@ -131,14 +131,14 @@ export const projects: Project[] = [
     status: "in-progress",
   },
   {
-    title: "Système de gestion de commandes — maison de mode",
+    title: "Système de gestion de commandes - maison de mode",
     description:
       "Application pour ateliers de couture et créateurs : suivi des commandes en temps réel, gestion des paiements, impression de reçus et étiquettes, tableau de bord avec statistiques.",
     tags: ["PHP", "MySQL", "Tailwind CSS", "JavaScript"],
     status: "done",
   },
   {
-    title: "Site web professionnel — Bleaz Architecture",
+    title: "Site web professionnel - Bleaz Architecture",
     description:
       "Développement complet du site vitrine d'un cabinet d'architecture : conception UI, responsive design, optimisation SEO et performance, déploiement en production.",
     tags: ["Développement web", "SEO", "UX/UI", "Déploiement"],
@@ -146,7 +146,7 @@ export const projects: Project[] = [
     status: "done",
   },
   {
-    title: "Identité visuelle & UX/UI — Bleaz Architecture",
+    title: "Identité visuelle & UX/UI - Bleaz Architecture",
     description:
       "Conception de l'identité visuelle et du système UX/UI d'un cabinet d'architecture : univers graphique, charte de couleurs, composants d'interface cohérents.",
     tags: ["Design UX/UI", "Identité visuelle", "Canva"],

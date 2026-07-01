@@ -15,8 +15,33 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Alexis Kimtoloum — Portfolio",
-  description: "Développeur web & consultant en transformation digitale",
+  title: "Alexis Kimtoloum - Développeur web & Data Scientist",
+  description:
+    "Développeur web et Data Scientist basé à Lomé, Togo. Développement web, analyse de données, SEO, marketing digital et formation pour PME et ONG en Afrique de l'Ouest.",
+  metadataBase: new URL("https://alexis-porfolio.vercel.app"),
+  openGraph: {
+    title: "Alexis Kimtoloum - Développeur web & Data Scientist",
+    description:
+      "Développement web, Data Science, SEO et marketing digital pour PME et ONG en Afrique de l'Ouest.",
+    url: "https://alexis-porfolio.vercel.app",
+    siteName: "Alexis Kimtoloum",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "fr_FR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Alexis Kimtoloum - Développeur web & Data Scientist",
+    description:
+      "Développement web, Data Science, SEO et marketing digital pour PME et ONG en Afrique de l'Ouest.",
+    images: ["/og-image.png"],
+  },
 };
 
 export default function RootLayout({
